@@ -1,0 +1,177 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Biodata',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.deepPurple[700], // Warna ungu tua
+        scaffoldBackgroundColor: const Color(0xFFEFEFEF), // Warna latar belakang abu terang
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.black87),
+        ),
+      ),
+      home: const MyHomePage(title: 'My New Profile'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            fontSize: 24, // Ukuran font lebih kecil
+            fontWeight: FontWeight.w500, // Tebal font sedang
+            color: Colors.white, // Warna putih
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple[700], // Warna ungu tua
+        elevation: 4, // Memberikan sedikit bayangan
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0), // Padding untuk semua sisi
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start, // Menempatkan elemen di awal layar
+          children: [
+            // Bagian profil dengan Row
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Avatar di bagian kiri
+                CircleAvatar(
+                  radius: 50, // Ukuran avatar lebih kecil
+                  backgroundImage: NetworkImage('/lib/foto.jpg'), // Path gambar lokal
+                  backgroundColor: Colors.deepPurple[100], // Latar belakang ungu muda
+                ),
+                const SizedBox(width: 20), // Jarak antara avatar dan teks
+                // Teks Identitas
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start, // Menyelaraskan teks ke kiri
+                  children: const [
+                    Text(
+                      'Nama: Namirah Salsabila',
+                      style: TextStyle(
+                        fontSize: 22, // Ukuran font sedang
+                        fontWeight: FontWeight.bold, // Font tebal
+                        color: Colors.deepPurple, // Warna teks ungu
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                    Text(
+                      'Umur: 21',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey, // Warna teks abu-abu
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                    Text(
+                      'Kelas: S1SE-06-01',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 20), // Jarak antar elemen
+            const Divider(
+              thickness: 1.5, // Divider lebih tipis
+              indent: 40,
+              endIndent: 40,
+              color: Colors.deepPurple, // Divider berwarna ungu
+            ),
+            // Container untuk informasi tentang diri
+            Container(
+              padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.symmetric(horizontal: 10.0),
+              decoration: BoxDecoration(
+                color: Colors.deepPurple[50], // Latar belakang ungu muda
+                borderRadius: BorderRadius.circular(20.0), // Sudut melengkung besar
+                border: Border.all(
+                  color: Colors.deepPurple, // Border ungu
+                  width: 2, // Lebar border 2px
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black12, // Bayangan hitam lembut
+                    blurRadius: 8.0,
+                    offset: Offset(3.0, 3.0),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Tentang Saya:',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700, // Font tebal
+                      color: Colors.deepPurple, // Warna teks ungu
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Nama saya Namirah Salsabila, mahasiswa S1 Software Engineering yang awalnya merasa dunia coding adalah teka-teki yang sulit dipecahkan. Meski sering menghadapi error yang bikin pusing, saya selalu percaya bahwa setiap kegagalan adalah bagian dari proses belajar. Walau belum jago ngoding, saya punya tekad kuat untuk terus mencoba walau gagal lagi. Bagi saya, perjalanan ini bukan soal seberapa cepat bisa menguasai, tapi seberapa jauh kita siap untuk belajar dan berkembang.',
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20), // Jarak antar elemen
+            const Text(
+              'Jumlah klik tombol:',
+              style: TextStyle(color: Colors.black87),
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    color: Colors.deepPurple, // Warna counter ungu
+                  ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Tambah',
+        backgroundColor: Colors.deepPurple[700], // Tombol ungu tua
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
