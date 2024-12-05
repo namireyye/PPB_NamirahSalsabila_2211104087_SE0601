@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1043432086799",
+    "project_id": "praktikumpbb-a9bed",
+    "storage_bucket": "praktikumpbb-a9bed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043432086799:android:3d8ff82f8f3b811ec1327a",
+        "android_client_info": {
+          "package_name": "com.example.guide11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWSA4x8lewtMCXzVPXZYlA1ebHCW-DFc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
